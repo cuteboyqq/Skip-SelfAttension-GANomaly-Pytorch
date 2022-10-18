@@ -6,7 +6,7 @@ Created on Sat Aug 27 20:25:41 2022
 """
 import matplotlib.pyplot as plt
 
-
+import os
 
 
 def plot_images(images,outputs):
@@ -14,10 +14,10 @@ def plot_images(images,outputs):
     fig, axes = plt.subplots(nrows=2, ncols=15, sharex=True, sharey=True, figsize=(25,4))
     
     # input images on top row, reconstructions on bottom
-    for images, row in zip([images, outputs], axes):
+    for images2, row in zip([images, outputs], axes):
         #print(len(images))
         #print(len(row))
-        for img, ax in zip(images, row):
+        for img, ax in zip(images2, row):
             #print(img)
             #print(np.shape(img))
             #print(np.shape(np.squeeze(img)))
@@ -32,6 +32,7 @@ def plot_images(images,outputs):
             ax.imshow(img)
             ax.get_xaxis().set_visible(False)
             ax.get_yaxis().set_visible(False)
+    return plt
 
 def plot_loss_distribution(SHOW_MAX_NUM,positive_loss,defeat_loss):
     # Importing packages
@@ -49,4 +50,7 @@ def plot_loss_distribution(SHOW_MAX_NUM,positive_loss,defeat_loss):
     #plt2.plot(x, z)
     plt2.scatter(x,y,s=1)
     plt2.scatter(x,z,s=1) 
+    os.makedirs('./runs/detect',exist_ok=True)
+    file_path = os.path.join('./runs/detect','loss_distribution.jpg')
+    plt2.savefig(file_path)
     plt2.show()

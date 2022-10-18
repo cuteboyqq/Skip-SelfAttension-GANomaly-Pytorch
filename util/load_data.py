@@ -17,6 +17,7 @@ def load_data(args):
                                                 #transforms.Scale(64),
                                                 transforms.CenterCrop(size),                                                 
                                                 transforms.ToTensor(),
+                                                #transforms.Normalize((0.5, 0.5, 0.5),(1,1,1)) #GANomaly parameter
                                                 transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)) #GANomaly parameter
                                                 ])
                                                 )
