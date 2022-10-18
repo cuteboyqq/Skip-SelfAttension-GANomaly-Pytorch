@@ -1,4 +1,4 @@
-### skip-GANomaly-Pytorch
+### Skip-SelfAttension-GANomaly-Pytorch
 [(Back to top)](#table-of-contents)
 
 Generator +  Discriminator model 
@@ -10,7 +10,7 @@ Generator +  Discriminator model
 
 Here is a sample TOC(*wow! such cool!*) that is actually the TOC for this README. -->
 
-- [skip-GANomaly-Pytorch](#skip-GANomaly-Pytorch)
+- [Skip-SelfAttension-GANomaly-Pytorch](#Skip-SelfAttension-GANomaly-Pytorch)
 - [Requirement](#Requirement)
 - [implement](#implement)
 - [Unet-Network](#Unet-Network)
@@ -29,8 +29,6 @@ pip install -r requirements.txt
 [(Back to top)](#table-of-contents)
 
 1. Encoder-Decoder use Unet
-
-![image](https://user-images.githubusercontent.com/58428559/195968483-e7b102f1-6071-4e70-8f18-0c4b749eda30.png)
 
 
 ### Unet-Network
