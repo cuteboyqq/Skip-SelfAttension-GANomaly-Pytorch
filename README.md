@@ -29,6 +29,9 @@ pip install -r requirements.txt
 [(Back to top)](#table-of-contents)
 
 1. Encoder-Decoder use Unet
+2. Use self-Attension
+
+![image](https://user-images.githubusercontent.com/58428559/196458673-9a46b77c-623c-4079-b8cb-876107318f26.png)
 
 
 ### Unet-Network
