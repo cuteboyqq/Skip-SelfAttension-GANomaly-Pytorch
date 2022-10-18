@@ -78,12 +78,12 @@ Example :
 Train dataset : factory line only
 
 dataset :factory line , top: input images, bottom: reconstruct images
-![image](https://user-images.githubusercontent.com/58428559/195970559-8acd1c96-fc0b-4ba8-81a4-6faf56bff6d2.png)
 
+![infer_normal1](https://user-images.githubusercontent.com/58428559/196492251-ca80117e-848a-43bb-95fb-510ec1c284ca.jpg)
 
 dataset :factory noline , top: input images, bottom: reconstruct images
-![image](https://user-images.githubusercontent.com/58428559/195970601-3a851ecf-5169-4992-8f80-d78c76a618c7.png)
 
+![infer_abnormal1](https://user-images.githubusercontent.com/58428559/196492292-0aeb749f-8400-4d31-b964-d3d5dd597c40.jpg)
 
 ### Lose-value-distribution
 [(Back to top)](#table-of-contents)
@@ -92,9 +92,7 @@ Blue : normal dataset
 
 Orange : abnormal dataset
 
-
-![image](https://user-images.githubusercontent.com/58428559/195972746-dfd5328f-58f8-4c48-81d4-7510011f9528.png)
-
+![loss_distribution](https://user-images.githubusercontent.com/58428559/196492187-8fdbf2e8-6473-4ed6-98c4-22f890482e08.jpg)
 
 ### Reference 
 [(Back to top)](#table-of-contents)
