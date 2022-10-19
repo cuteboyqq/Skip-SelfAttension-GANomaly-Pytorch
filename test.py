@@ -27,12 +27,12 @@ def get_args():
     parser.add_argument('-noramldir','--normal-dir',help='image dir',default=r"C:\factory_data\2022-08-26\f_384_2min\crops")
     parser.add_argument('-abnoramldir','--abnormal-dir',help='image dir',default= r"C:\factory_data\2022-08-26\f_384_2min\crops_noline")
     parser.add_argument('-imgsize','--img-size',type=int,help='image size',default=64)
-    parser.add_argument('-nz','--nz',type=int,help='compress size',default=100)
+    parser.add_argument('-nz','--nz',type=int,help='compress size',default=200)
     parser.add_argument('-nc','--nc',type=int,help='num of channels',default=3)
     parser.add_argument('-lr','--lr',type=float,help='learning rate',default=2e-4)
-    parser.add_argument('-batchsize','--batch-size',type=int,help='train batch size',default=20)
-    parser.add_argument('-savedir','--save-dir',help='save model dir',default=r"C:\GitHub_Code\cuteboyqq\GANomaly\Skip-SelfAttension-GANomaly-Pytorch\runs\train\64-100")
-    parser.add_argument('-weights','--weights',help='model dir',default= r"C:\GitHub_Code\cuteboyqq\GANomaly\Skip-SelfAttension-GANomaly-Pytorch\runs\train\64-100")
+    parser.add_argument('-batchsize','--batch-size',type=int,help='train batch size',default=1)
+    parser.add_argument('-savedir','--save-dir',help='save model dir',default=r"C:\GitHub_Code\cuteboyqq\GANomaly\Skip-SelfAttension-GANomaly-Pytorch\runs\train\64-200")
+    parser.add_argument('-weights','--weights',help='model dir',default= r"C:\GitHub_Code\cuteboyqq\GANomaly\Skip-SelfAttension-GANomaly-Pytorch\runs\train\64-200")
     parser.add_argument('-viewimg','--view-img',action='store_true',help='view images')
     parser.add_argument('-train','--train',action='store_true',help='view images')
     return parser.parse_args()    
@@ -44,7 +44,7 @@ def main():
     test(args)
 
 def test(args):
-    args.view_img = True
+    args.view_img = False
     if args.view_img:
         BATCH_SIZE_VAL = 20
         SHOW_MAX_NUM = 4
