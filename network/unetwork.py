@@ -95,11 +95,11 @@ class UEncoder(nn.Module):
         
         main = nn.Sequential()
         main.add_module('pyramid-UNetDown-{0}-{1}'.format(nc,  32),self.down1)
-        main.add_module('pyramid-Attention-{0}-{1}'.format(32, 32),self.attn1)
+        #main.add_module('pyramid-Attention-{0}-{1}'.format(32, 32),self.attn1)
         main.add_module('pyramid-UNetDown-{0}-{1}'.format(32,  64),self.down2)
-        main.add_module('pyramid-Attention-{0}-{1}'.format(64, 64),self.attn2)
+        #main.add_module('pyramid-Attention-{0}-{1}'.format(64, 64),self.attn2)
         main.add_module('pyramid-UNetDown-{0}-{1}'.format(64, 128),self.down3)
-        main.add_module('pyramid-Attention-{0}-{1}'.format(128,128),self.attn3)
+        #main.add_module('pyramid-Attention-{0}-{1}'.format(128,128),self.attn3)
         main.add_module('pyramid-UNetDown-{0}-{1}'.format(128,256),self.down4)
         if isize==128:
             main.add_module('pyramid-UNetDown-{0}-{1}'.format(256,512),self.down5)
