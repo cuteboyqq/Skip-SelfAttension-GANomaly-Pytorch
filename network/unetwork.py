@@ -87,11 +87,19 @@ class UEncoder(nn.Module):
         elif isize==64:
             if add_final_conv:
                 self.conv1 = nn.Conv2d(256, nz, 4, 1, 0, bias=False) #isize/64
-                
+        
+        
+        self.attn1 = Self_Attn( 32, 'relu')
+        self.attn2 = Self_Attn( 64, 'relu')
+        self.attn3 = Self_Attn( 128, 'relu')
+        
         main = nn.Sequential()
         main.add_module('pyramid-UNetDown-{0}-{1}'.format(nc,  32),self.down1)
+        main.add_module('pyramid-Attention-{0}-{1}'.format(32, 32),self.attn1)
         main.add_module('pyramid-UNetDown-{0}-{1}'.format(32,  64),self.down2)
+        main.add_module('pyramid-Attention-{0}-{1}'.format(64, 64),self.attn2)
         main.add_module('pyramid-UNetDown-{0}-{1}'.format(64, 128),self.down3)
+        main.add_module('pyramid-Attention-{0}-{1}'.format(128,128),self.attn3)
         main.add_module('pyramid-UNetDown-{0}-{1}'.format(128,256),self.down4)
         if isize==128:
             main.add_module('pyramid-UNetDown-{0}-{1}'.format(256,512),self.down5)
@@ -103,18 +111,19 @@ class UEncoder(nn.Module):
         
         self.layers = list(main.children())
         
-        self.attn1 = Self_Attn( 32, 'relu')
-        self.attn2 = Self_Attn( 64, 'relu')
-        self.attn3 = Self_Attn( 128, 'relu')
+        
         
     def forward(self, input):
         #print('\ninput shape:{}'.format(input.shape))
         d1 = self.down1(input)
-        d1,p1 = self.attn1(d1)
+        d1 = self.attn1(d1)
+        
         d2 = self.down2(d1)
-        d2,p1 = self.attn2(d2)
+        d2 = self.attn2(d2)
+        
         d3 = self.down3(d2)
-        d3,p2 = self.attn3(d3)
+        d3 = self.attn3(d3)
+        
         d4 = self.down4(d3)
         if self.isize==128:
             d5 = self.down5(d4)
